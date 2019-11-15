@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Registro</title>
+
+  <style>
+    .container-fluid{
+        height: 75px;
+    }
+
+    .table th{
+        text-align: center;
+    }
+  </style>
+  
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: blue" class="row justify-content-center justify-content-md-start">
+        <center>
+            <h1>Lista de Registro</h1>
+        </center>
+    </div>
+
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+            <button type="button" class="btn btn-dark" onclick="location.href = 'http://127.0.0.1:3333'">Regresar</button>
+            <button type="button" class="btn btn-success" onclick="location.href = 'http://127.0.0.1:3333/hojaparte/crear'">Agregar</button><br><br><br>
+            
+            <table class="table table-bordered table-dark">
+                <thead>      
+                    <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Reparacion</th>
+                        <th scope="col">Mecanico</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                    @each(hojaparte in hojaparte)
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>{{hojaparte.concepto}}</th>
+                        <th>{{hojaparte.cantidad}}</th>
+                        <th>{{hojaparte.reparacion}}</th>
+                        <th>{{hojaparte.mecanicore_id}}</th>
+                        <th><button type="button" class="btn btn-danger" onclick="eliminar({{hojaparte.id}})">Eliminar</button></th>
+                        <th><button type="button" class="btn btn-warning" onclick="editar({{hojaparte.id}})">Editar</button></th>
+                    </tr>
+                    @endeach
+                </tbody>
+            </table>
+        </center>
+    </div>
+</body>
+
+<script>
+    function eliminar(num){
+        location.href = "http://127.0.0.1:3333/hojaparte/eliminar/"+num;
+    }
+
+    function editar(num){
+        location.href = "http://127.0.0.1:3333/hojaparte/editar/"+num;
+    }
+</script>
+</html>

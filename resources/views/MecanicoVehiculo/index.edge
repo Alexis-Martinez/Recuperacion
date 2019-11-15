@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Mecanico y Vehiculo</title>
+
+  <style>
+    .container-fluid{
+        height: 75px;
+    }
+
+    .table th{
+        text-align: center;
+    }
+  </style>
+  
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: blue" class="row justify-content-center justify-content-md-start">
+        <center>
+            <h1>Lista de Pedidos</h1>
+        </center>
+    </div>
+
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+            <button type="button" class="btn btn-dark" onclick="location.href = 'http://127.0.0.1:3333'">Regresar</button>
+            <button type="button" class="btn btn-success" onclick="location.href = 'http://127.0.0.1:3333/mecanicovehiculo/crear'">Agregar</button><br><br><br>
+            
+            <table class="table table-bordered table-dark">
+                <thead>      
+                    <tr>
+                        <th scope="col">Mecanico</th>
+                        <th scope="col">Vehiculo</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                    @each(mecavehiculo in mecavehiculo)
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>{{mecavehiculo.mecanicore_id}}</th>
+                        <th>{{mecavehiculo.vehiculo_id}}</th>
+                        <th><button type="button" class="btn btn-danger" onclick="eliminar({{mecavehiculo.id}})">Eliminar</button></th>
+                        <th><button type="button" class="btn btn-warning" onclick="editar({{mecavehiculo.id}})">Editar</button></th>
+                    </tr>
+                    @endeach
+                </tbody>
+            </table>
+        </center>
+    </div>
+</body>
+
+<script>
+    function eliminar(num){
+        location.href = "http://127.0.0.1:3333/mecanicovehiculo/eliminar/"+num;
+    }
+
+    function editar(num){
+        location.href = "http://127.0.0.1:3333/mecanicovehiculo/editar/"+num;
+    }
+</script>
+</html>

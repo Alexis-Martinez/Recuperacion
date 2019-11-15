@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agregar Factura</title>
+    <style>
+        .form-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        }
+    </style>
+</head>
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+            <h1>Agregar Nueva Factura</h1>
+            <form action="http://127.0.0.1:3333/factura/crear" method="POST">
+                <div class="form-row">
+                  <div>
+                    <label for="inputFecha">fecha</label>
+                    <input type="date" class="form-control" name="fecha" placeholder="Fecha">
+                    <br>
+                    <label for="inputIMPpesos">IMP Pesos</label>
+                    <input type="text" class="form-control" name="imp_pesos" placeholder="Imp_pesos">
+                    <br>
+                    <label for="inputIMPdol">IMP Dol</label>
+                    <input type="text" class="form-control" name="imp_dol" placeholder="Imp_dol">
+                    <br>
+                    <label for="inputRfc">RFC</label>
+                    <input type="text" class="form-control" name="rfc" placeholder="Rfc">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="location.href = 'http://127.0.0.1:3333/factura'">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                  </div>
+                </div>
+              </form>
+        </center>
+    </div>
+<body>
+    
+</body>
+</html>

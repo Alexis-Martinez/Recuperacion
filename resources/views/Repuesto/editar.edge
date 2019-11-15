@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Editar Repuesto</title>
+
+  <style>
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+          <h1>Modificar Repuesto</h1>
+        <form action="http://127.0.0.1:3333/repuesto/editar/{{repuesto.id}}" method="POST">
+            <div class="form-row">
+              <div>
+                <label for="inputDescripcion">Descripcion</label>
+                <input value="{{repuesto.descripcion}}" type="text" class="form-control" name="descripcion" placeholder="Descripcion">
+                <br>
+                <label for="inputCostounit">Costo</label>
+                <input value="{{repuesto.costounit}}" type="text" class="form-control" name="costounit" placeholder="Costounit">
+                <br>
+                <label for="inputPreciounit">Precio</label>
+                <input value="{{repuesto.preciounit}}" type="text" class="form-control" name="preciounit" placeholder="Preciounit">
+                <br>
+                <select name="hojaparte_id">
+                    @each(hojaparte in hojaparte)
+                        <option value="{{hojaparte.id}}" name="{{hojaparte.id}}">{{hojaparte.id}}<option>
+                    @endeach
+                </select>
+                <br>
+                <select name="hojapartemec_id">
+                        @each(hojaparte2 in hojaparte2)
+                            <option value="{{hojaparte2.hojapartemec_id}}" name="{{hojapartemec_.id}}">{{hojaparte2.hojapartemec_id}}<option>
+                        @endeach
+                    </select>
+                <br><br>
+                <button type="button" class="btn btn-danger" onclick="location.href = 'http://127.0.0.1:3333/repuesto'">Cancelar</button>
+                <button type="submit" class="btn btn-success">Editar</button>
+              </div>
+            </div>
+          </form>
+        </center>
+    </div>
+</body>
+</html>

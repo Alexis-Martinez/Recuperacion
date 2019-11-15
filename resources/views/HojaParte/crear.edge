@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agregar Registro</title>
+    <style>
+        .form-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        }
+    </style>
+</head>
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+            <h1>Agregar Nuevo Registro</h1>
+            <form action="http://127.0.0.1:3333/hojaparte/crear" method="POST">
+                <div class="form-row">
+                  <div>
+                    <label for="inputConcepto">Concepto</label>
+                    <input type="text" class="form-control" name="concepto" placeholder="Concepto">
+                    <br>
+                    <label for="inputCantidad">Cantidad</label>
+                    <input type="text" class="form-control" name="cantidad" placeholder="Cantidad">
+                    <br>
+                    <label for="inputReparacion">Reparacion</label>
+                    <input type="text" class="form-control" name="reparacion" placeholder="Reparacion">
+                    <br>
+                    <select name="mecanicore_id">
+                        @each(mecanicore in mecanicore)
+                            <option value="{{mecanicore.id}}" name="{{mecanicore.nombre}}">{{mecanicore.nombre}}<option>
+                        @endeach
+                    </select>
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="location.href = 'http://127.0.0.1:3333/hojaparte'">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                  </div>
+                </div>
+              </form>
+        </center>
+    </div>
+<body>
+    
+</body>
+</html>

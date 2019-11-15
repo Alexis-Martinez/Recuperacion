@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agregar Vehiculo</title>
+    <style>
+        .form-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        }
+    </style>
+</head>
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+            <h1>Agregar Nuevo Vehiculo</h1>
+            <form action="http://127.0.0.1:3333/vehiculo/crear" method="POST">
+                <div class="form-row">
+                  <div>
+                    <label for="inputModelo">Modelo</label>
+                    <input type="text" class="form-control" name="modelo" placeholder="Modelo">
+                    <br>
+                    <label for="inputColor">Color</label>
+                    <input type="text" class="form-control" name="color" placeholder="Color">
+                    <br>
+                    <label for="inputFechaE">Fecha de Entrada</label>
+                    <input value="{{vehiculo.fecha_ent}}" type="date" class="form-control" name="fecha_ent" placeholder="Fecha_ent">
+                    <br>
+                    <label for="inputHoraE">Hora de Entrada</label>
+                    <input value="{{vehiculo.hora_ent}}" type="time" class="form-control" name="hora_ent" placeholder="Hora_ent">
+                    <br>
+                    <select name="cliente_id">
+                        @each(cliente in cliente)
+                            <option value="{{cliente.id}}" name="{{cliente.nombre}}">{{cliente.nombre}}<option>
+                        @endeach
+                    </select>
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="location.href = 'http://127.0.0.1:3333/vehiculo'">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                  </div>
+                </div>
+              </form>
+        </center>
+    </div>
+<body>
+    
+</body>
+</html>

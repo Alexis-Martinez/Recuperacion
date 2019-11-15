@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Editar Mecanico</title>
+
+  <style>
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="p-3 mb-2 bg-info text-white">
+        <center>
+          <h1>Modificar Mecanico</h1>
+        <form action="http://127.0.0.1:3333/mecanicore/editar/{{mecanicore.id}}" method="POST">
+            <div class="form-row">
+              <div>
+                <label for="inputNombre">Nombre</label>
+                <input value="{{mecanicore.nombre}}" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                <br>
+                <label for="inputDireccion">Direccion</label>
+                <input value="{{mecanicore.direccion}}" type="text" class="form-control" name="direccion" placeholder="Direccion">
+                <br>
+                <label for="inputTelefono">Telefono</label>
+                <input value="{{mecanicore.telefono}}" type="text" class="form-control" name="telefono" placeholder="Telefono">
+                <br>
+                <label for="inputCostoxhora">Costo por Hora</label>
+                <input value="{{mecanicore.costoxhora}}" type="text" class="form-control" name="costoxhora" placeholder="Costoxhora">
+                <br>
+                <label for="inputCategoria">Categoria</label>
+                <input value="{{mecanicore.categoria}}" type="text" class="form-control" name="categoria" placeholder="Categoria">
+                <br><br>
+                <button type="button" class="btn btn-danger" onclick="location.href = 'http://127.0.0.1:3333/mecanicore'">Cancelar</button>
+                <button type="submit" class="btn btn-success">Editar</button>
+              </div>
+            </div>
+          </form>
+        </center>
+    </div>
+</body>
+</html>
